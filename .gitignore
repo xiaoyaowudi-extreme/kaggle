@@ -1,1 +1,3 @@
 *.tfrecords
+./mnist/log
+./mnist/__pycache__
