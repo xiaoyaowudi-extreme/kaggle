@@ -33,7 +33,7 @@ writer         = tf.python_io.TFRecordWriter(tfrecords_name)
 for i in labels:
     example = tf.train.Example(features=tf.train.Features(feature = {
         'label'     : _int64_feature(read_label(os.path.join(data_path, 'label', i + '.txt'))),
-        'image_raw' : _bytes_feature(cv2.imread(os.path.join(data_path, 'image', i + '.jpg')).tostring())
+        'image_raw' : _bytes_feature(cv2.imread(os.path.join(data_path, 'image', i + '.jpg'), cv2.IMREAD_GRAYSCALE).tostring())
     }))
     writer.write(example.SerializeToString())
 
